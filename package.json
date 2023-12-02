@@ -1,0 +1,15 @@
+{
+  "name": "advent-of-code",
+  "module": "index.js",
+  "type": "module",
+  "devDependencies": {
+    "@types/ramda": "^0.29.9",
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "ramda": "^0.29.1"
+  }
+}
