@@ -70,6 +70,8 @@ const calculateSumOfGameIDs = R.pipe(
 // ======================================
 
 /**
+ * ### Part 1
+ * 
  * As you walk, the Elf shows you a small bag and some cubes which are either red, green, or blue. 
  * Each time you play this game, he will hide a secret number of cubes of each color in the bag, 
  * and your goal is to figure out information about the number of cubes.
@@ -112,7 +114,7 @@ export async function sumOfIdsOfPossibleGames() {
   const gamesResults = await readString('2/input.txt');
 
   console.log(
-    "Sum of IDs of possible games:",
+    "Day 2. Part 1. Sum of IDs of possible games:",
     calculateSumOfGameIDs(gamesResults)
   );
 }

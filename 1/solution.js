@@ -1,6 +1,8 @@
-
 import * as R from 'ramda';
 import { readString } from '../util/file';
+
+// ====================
+// Digits
 
 const DIGITS = [
   '_',
@@ -26,6 +28,9 @@ const getWordByNumber = R.pipe(
 );
 
 const getNumberByWord = R.flip(R.indexOf)(DIGITS);
+
+// ====================
+// Search
 
 /**
  * `words` contains list of all string that currently
@@ -91,7 +96,6 @@ const nextDigitString = index => R.pipe(
   R.last
 );
 
-
 /**
  * Recursive function that keeps iterating string until digit word is found.
  * Then it saves it to accumulator, splits the string to remove the part we already
@@ -133,8 +137,6 @@ const rowsSum = R.pipe(
 // ======================================
 
 /**
- * The problem:
- * 
  * ### Part 1:
  * The newly-improved calibration document consists of lines of text; each line originally contained a specific calibration value that the Elves now need to recover. On each line, the calibration value can be found by combining the first digit and the last digit (in that order) to form a single two-digit number.
  * 
@@ -173,7 +175,7 @@ export async function sumOfCalibrationNumbers() {
   const calibrationDocument = await readString('1/input.txt');
 
   console.log(
-    "Calibration sum:",
+    "Day 1 (same solution for both parts). Calibration sum:",
     rowsSum(calibrationDocument)
   );
 }
