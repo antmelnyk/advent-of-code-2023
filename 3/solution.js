@@ -1,7 +1,6 @@
 import * as R from 'ramda';
-
+import { RC } from '../util/ramda_cookbook';
 import { readString } from '../util/file';
-import { indexedReduce, indexedMap, indexedChain } from '../util/ramda';
 
 // ====================
 // Filters
@@ -78,26 +77,26 @@ const processGearCell = R.pipe(
   R.ifElse(
     R.isEmpty,
     R.always(0),
-    R.reduce(R.multiply, 1)
+    RC.power
   )
 );
 
 const findSymbolNeighbours = (engine) =>
-  indexedChain((row, y) =>
-    indexedMap(processCell(isSymbol, R.identity)(y, engine), row),
+  RC.indexedChain((row, y) =>
+    RC.indexedMap(processCell(isSymbol, R.identity)(y, engine), row),
     engine
   );
 
 const findGears = (engine) =>
-  indexedChain((row, y) =>
-    indexedMap(processCell(isGear, processGearNeighbours)(y, engine), row),
+  RC.indexedChain((row, y) =>
+    RC.indexedMap(processCell(isGear, processGearNeighbours)(y, engine), row),
     engine
   );
 
 // ====================
 // Engine
 
-const searchNumbers = indexedReduce((acc, char, index, arr) => {
+const searchNumbers = RC.indexedReduce((acc, char, index, arr) => {
   return R.cond([
     // Character is not a digit, flush number in accumulator
     [() => !isDigit(char) && acc.value, () => {
@@ -143,7 +142,7 @@ const numerizeEngineLine = (engineLine, lineIndex) => {
 
 const parseEngine = R.pipe(
   R.split('\n'),
-  indexedMap(numerizeEngineLine),
+  RC.indexedMap(numerizeEngineLine),
 );
 
 const getSymbolNeighboursSum = R.pipe(
