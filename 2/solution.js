@@ -180,7 +180,7 @@ const calculateSumOfPowerOfSets = R.pipe(
  * For each game, find the minimum set of cubes that must have been present. 
  * What is the sum of the power of these sets?
  */
-export async function sumOfIdsOfPossibleGames() {
+export async function day2() {
   const gamesResults = await readString('2/input.txt');
 
   console.log(

@@ -249,7 +249,7 @@ const sumOfGearRatios = R.pipe(
  *
  * What is the sum of all of the gear ratios in your engine schematic?
  */
-export async function sumOfAdjacentNumbersInEngine() {
+export async function day3() {
   const engine = await readString('3/input.txt');
 
   console.log(

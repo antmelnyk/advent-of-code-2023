@@ -1,12 +1,13 @@
-import { sumOfCalibrationNumbers } from "./1/solution.js";
-import { sumOfIdsOfPossibleGames } from "./2/solution.js";
-import { sumOfAdjacentNumbersInEngine } from "./3/solution.js";
+import { day1 } from "./1/solution.js";
+import { day2 } from "./2/solution.js";
+import { day3 } from "./3/solution.js";
+import { day4 } from "./4/solution.js";
 
-// Day 1
-await sumOfCalibrationNumbers()
+const days = [
+  day1(),
+  day2(),
+  day3(),
+  day4()
+];
 
-// Day 2
-await sumOfIdsOfPossibleGames()
-
-// Day 3
-await sumOfAdjacentNumbersInEngine()
+await Promise.all(days);
